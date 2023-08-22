@@ -64,3 +64,20 @@ INSERT INTO comments(customer_id, title, description)
     ('18', 'Comment 2', 'Sample comment 2'),
     ('212', 'Comment 1', 'Sample comment 1'),
     ('212', 'Comment 2', 'Sample comment 2');
+
+CREATE TABLE likes(
+  customer_id VARCHAR(100) NOT NULL,
+  product_id VARCHAR(100) NOT NULL,
+  PRIMARY KEY(customer_id, product_id),
+  CONSTRAINT likes_customer_id_fk FOREIGN KEY(customer_id) REFERENCES customers(id),
+  CONSTRAINT likes_product_id_fk FOREIGN KEY(product_id) REFERENCES products(id)
+) ENGINE INNODB;
+
+CREATE TABLE _loves(
+  A VARCHAR(100) NOT NULL,
+  B VARCHAR(100) NOT NULL,
+
+  PRIMARY KEY(A, B),
+  CONSTRAINT customer_loves_fk FOREIGN KEY(A) REFERENCES customers(id),
+  CONSTRAINT product_loves_fk FOREIGN KEY(B) REFERENCES products(id)
+) ENGINE INNODB;
