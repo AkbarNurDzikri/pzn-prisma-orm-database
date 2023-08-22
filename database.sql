@@ -31,3 +31,10 @@ INSERT INTO products(id, name, price, stock, category)
     ('P0003', 'C', 3000, 300, 'K3'),
     ('P0004', 'D', 4000, 400, 'K4'),
     ('P0005', 'E', 5000, 500, 'K5');
+
+CREATE TABLE categories(
+  id INT NOT NULL AUTO_INCREMENT,
+  name VARCHAR(100) NOT NULL,
+
+  PRIMARY KEY(id)
+) ENGINE INNODB;
