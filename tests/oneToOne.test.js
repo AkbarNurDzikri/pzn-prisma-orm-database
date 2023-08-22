@@ -16,18 +16,46 @@ describe("Prisma Client", () => {
   //   console.info(wallet);
   // });
 
-  it("should can create one to one with relation", async () => {
-    const customer = await prismaClient.customer.create({
-      data: {
-        id: "212",
-        name: "Wiro Sableng",
-        email: "wiro@sableng.id",
-        phone: "4325435",
+  // it("should can create one to one with relation", async () => {
+  //   const customer = await prismaClient.customer.create({
+  //     data: {
+  //       id: "212",
+  //       name: "Wiro Sableng",
+  //       email: "wiro@sableng.id",
+  //       phone: "4325435",
+  //       wallet: {
+  //         create: {
+  //           id: "212",
+  //           balance: 500000
+  //         }
+  //       }
+  //     },
+  //     include: {
+  //       wallet: true
+  //     }
+  //   });
+
+  //   console.info(customer)
+  // });
+
+  // it("should can find one to one with relation", async () => {
+  //   const customer = await prismaClient.customer.findUnique({
+  //     where: {
+  //       id: "212"
+  //     },
+  //     include: {
+  //       wallet: true
+  //     }
+  //   });
+
+  //   console.info(customer);
+  // });
+
+  it("should can find one to one with relation filter", async () => {
+    const customers = await prismaClient.customer.findMany({
+      where: {
         wallet: {
-          create: {
-            id: "212",
-            balance: 500000
-          }
+          isNot: null
         }
       },
       include: {
@@ -35,6 +63,6 @@ describe("Prisma Client", () => {
       }
     });
 
-    console.info(customer)
+    console.info(customers);
   });
 });
