@@ -81,3 +81,6 @@ CREATE TABLE _loves(
   CONSTRAINT customer_loves_fk FOREIGN KEY(A) REFERENCES customers(id),
   CONSTRAINT product_loves_fk FOREIGN KEY(B) REFERENCES products(id)
 ) ENGINE INNODB;
+
+CREATE DATABASE belajar_nodejs_database_prisma;
+USE belajar_nodejs_database_prisma;
